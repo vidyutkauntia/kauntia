@@ -212,7 +212,14 @@
     prog = Math.max(0, Math.min(1, prog));
     if (roadFill) roadFill.style.height = (prog * 100) + "%";
     if (roadLine && !reduce) roadLine.style.backgroundPositionY = (-prog * r.height * 2) + "px";
-    if (roadBus && !reduce) roadBus.style.transform = "rotate(" + (Math.sin(prog * Math.PI * 4) * 6) + "deg)";
+    if (roadBus) {
+      // drive the bus down the road, keeping it ~centred in the viewport while in range
+      var bh = roadBus.offsetHeight || 84;
+      var t = Math.max(0, Math.min(innerHeight * 0.46 - r.top, r.height - bh));
+      roadBus.style.top = t + "px";
+      var tilt = reduce ? 0 : Math.sin(prog * Math.PI * 4) * 6;
+      roadBus.style.transform = "translateX(-50%) rotate(" + tilt + "deg)";
+    }
   }
 
   /* ---------- testimonials carousel ---------- */
