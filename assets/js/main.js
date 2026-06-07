@@ -55,9 +55,10 @@
 
   /* ---------- count-up ---------- */
   function count(el) {
-    var target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || "", dur = 1500, start = null;
+    var target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || "", dur = 2400, start = null;
     if (reduce) { el.textContent = target.toLocaleString("en-IN") + suffix; return; }
     function step(ts) {
+      if (el._stop) return;
       if (start === null) start = ts;
       var k = Math.min((ts - start) / dur, 1), e = 1 - Math.pow(1 - k, 3);
       el.textContent = Math.round(target * e).toLocaleString("en-IN") + suffix;
@@ -76,20 +77,43 @@
       offset += val;
     });
   }
-  // legend <-> segment highlight
-  var segs = $$(".donut__seg"), legendLis = $$("#legend li");
+  // legend <-> segment highlight + click-to-focus (shows weightage)
+  var donutEl = $("#donut"), segs = $$(".donut__seg"), legendLis = $$("#legend li");
+  var big = $(".donut__big"), cap = $(".donut__cap");
+  var focused = -1;
   function hot(i, on) {
+    if (focused >= 0) return; // don't fight a locked focus on hover
     if (segs[i]) segs[i].classList.toggle("hot", on);
     if (legendLis[i]) legendLis[i].classList.toggle("hot", on);
+  }
+  function resetFocus() {
+    focused = -1; donutEl.classList.remove("focusing");
+    segs.forEach(function (s) { s.classList.remove("hot"); });
+    legendLis.forEach(function (l) { l.classList.remove("hot"); });
+    big.classList.remove("sm"); big.textContent = "12,000"; cap.textContent = "e-buses in India";
+  }
+  function focus(i) {
+    if (big) big._stop = true; // lock center against the count-up animation
+    if (focused === i) { resetFocus(); return; }
+    focused = i;
+    donutEl.classList.add("focusing");
+    segs.forEach(function (s, j) { s.classList.toggle("hot", j === i); });
+    legendLis.forEach(function (l, j) { l.classList.toggle("hot", j === i); });
+    big.classList.add("sm");
+    big.textContent = parseFloat(segs[i].dataset.val) + "%";
+    cap.textContent = segs[i].dataset.name + " share";
   }
   legendLis.forEach(function (li, i) {
     li.addEventListener("mouseenter", function () { hot(i, true); });
     li.addEventListener("mouseleave", function () { hot(i, false); });
+    li.addEventListener("click", function () { focus(i); });
   });
   segs.forEach(function (s, i) {
     s.addEventListener("mouseenter", function () { hot(i, true); });
     s.addEventListener("mouseleave", function () { hot(i, false); });
+    s.addEventListener("click", function () { focus(i); });
   });
+  if (big) big.parentNode.addEventListener("click", function () { if (focused >= 0) resetFocus(); });
 
   /* ---------- rings ---------- */
   function fillRing(ring) {
@@ -123,14 +147,36 @@
   }, { threshold: 0.5 });
   $$(".ring").forEach(function (r) { ioRing.observe(r); });
 
-  /* ---------- journey: bus sway + green road fill ---------- */
+  /* ---------- fleet grid (449 buses, by city) ---------- */
+  (function fleet() {
+    var viz = $("#fleetViz"); if (!viz) return;
+    var groups = [
+      { n: 12, c: "var(--green-bright)" }, // Bengaluru 120
+      { n: 10, c: "#3fd089" },             // Guwahati 100
+      { n: 17, c: "var(--navy-2)" },       // Delhi 168
+      { n: 6,  c: "var(--navy)" }          // Dolvi 61
+    ];
+    var k = 0;
+    groups.forEach(function (g) {
+      for (var j = 0; j < g.n; j++) {
+        var s = document.createElement("span");
+        s.className = "fbus"; s.style.background = g.c;
+        s.style.transitionDelay = (k * 0.022) + "s";
+        viz.appendChild(s); k++;
+      }
+    });
+  })();
+
+  /* ---------- journey: bus sway + green road fill + road motion ---------- */
   var roadBus = $("#roadBus"), road = $("#road"), roadFill = $("#roadFill");
+  var roadLine = road ? road.querySelector(".road__line") : null;
   function journey() {
     if (!road) return;
     var r = road.getBoundingClientRect();
     var prog = (innerHeight * 0.46 - r.top) / r.height;
     prog = Math.max(0, Math.min(1, prog));
     if (roadFill) roadFill.style.height = (prog * 100) + "%";
+    if (roadLine && !reduce) roadLine.style.backgroundPositionY = (-prog * r.height * 2) + "px";
     if (roadBus && !reduce) roadBus.style.transform = "rotate(" + (Math.sin(prog * Math.PI * 4) * 6) + "deg)";
   }
 
@@ -139,6 +185,8 @@
     var track = $("#carTrack"), vp = $("#carViewport"), dotsWrap = $("#carDots");
     if (!track) return;
     var cards = $$(".qcard", track), n = cards.length, idx = 0, auto;
+    var hint = $("#carHint"), hintGone = false;
+    function hideHint() { if (hint && !hintGone) { hint.style.transition = "opacity .4s"; hint.style.opacity = "0"; hintGone = true; } }
     cards.forEach(function (_, i) {
       var b = document.createElement("button");
       b.setAttribute("aria-label", "Go to slide " + (i + 1));
@@ -152,11 +200,11 @@
       dots.forEach(function (d, j) { d.classList.toggle("active", j === idx); });
     }
     function reset() { clearInterval(auto); if (!reduce) auto = setInterval(function () { go(idx + 1); }, 6000); }
-    $("#carNext").addEventListener("click", function () { go(idx + 1); reset(); });
-    $("#carPrev").addEventListener("click", function () { go(idx - 1); reset(); });
+    $("#carNext").addEventListener("click", function () { go(idx + 1); reset(); hideHint(); });
+    $("#carPrev").addEventListener("click", function () { go(idx - 1); reset(); hideHint(); });
     // drag / swipe
     var down = false, sx = 0, dx = 0;
-    function start(x) { down = true; sx = x; dx = 0; track.classList.add("dragging"); clearInterval(auto); }
+    function start(x) { down = true; sx = x; dx = 0; track.classList.add("dragging"); clearInterval(auto); hideHint(); }
     function move(x) { if (down) { dx = x - sx; track.style.transform = "translateX(calc(" + (-idx * 100) + "% + " + dx + "px))"; } }
     function end() {
       if (!down) return; down = false; track.classList.remove("dragging");

@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -21,6 +21,14 @@
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ============ TOP BAR (scrolling) ============ -->
+<div class="topbar" id="topbar" aria-hidden="true">
+  <div class="topbar__track">
+    <span>ISO 9001:2015 Certified</span><i></i><span>449+ electric buses across five states</span><i></i><span>800+ people</span><i></i><span>Operating for Switch Mobility, JBM &amp; Tata Motors</span><i></i><span>India's capital-light e-bus operating platform</span><i></i>
+    <span>ISO 9001:2015 Certified</span><i></i><span>449+ electric buses across five states</span><i></i><span>800+ people</span><i></i><span>Operating for Switch Mobility, JBM &amp; Tata Motors</span><i></i><span>India's capital-light e-bus operating platform</span><i></i>
+  </div>
+</div>
 
 <!-- ============ NAV ============ -->
 <header class="nav hero-mode" id="nav">
@@ -84,20 +92,48 @@
   <a href="#intro" class="hero__scroll" aria-label="Scroll" data-cursor><span></span></a>
 </section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Switch Mobility</span><i>&#9670;</i><span>JBM Group</span><i>&#9670;</i><span>Tata Motors</span><i>&#9670;</i><span>Royal Enfield</span><i>&#9670;</i><span>ISO 9001:2015</span><i>&#9670;</i><span>800+ People</span><i>&#9670;</i><span>Five States</span><i>&#9670;</i>
-    <span>Switch Mobility</span><i>&#9670;</i><span>JBM Group</span><i>&#9670;</i><span>Tata Motors</span><i>&#9670;</i><span>Royal Enfield</span><i>&#9670;</i><span>ISO 9001:2015</span><i>&#9670;</i><span>800+ People</span><i>&#9670;</i><span>Five States</span><i>&#9670;</i>
+<!-- ============ PARTNER LOGO MARQUEE ============ -->
+<div class="logos" aria-label="Partners and certifications">
+  <span class="logos__label">Trusted by &amp; partnered with</span>
+  <div class="logos__viewport">
+    <div class="logos__track" id="logosTrack">
+      <div class="ltile"><span class="lg lg--tata">TATA<small>MOTORS</small></span></div>
+      <div class="ltile"><span class="lg lg--switch">SW<i>//</i>TCH</span></div>
+      <div class="ltile"><span class="lg lg--jbm">JBM<small>GROUP</small></span></div>
+      <div class="ltile"><span class="lg lg--re">Royal Enfield</span></div>
+      <div class="ltile"><span class="lg lg--iso">ISO<i>9001:2015</i></span></div>
+      <div class="ltile"><span class="lg lg--tata">TATA<small>MOTORS</small></span></div>
+      <div class="ltile"><span class="lg lg--switch">SW<i>//</i>TCH</span></div>
+      <div class="ltile"><span class="lg lg--jbm">JBM<small>GROUP</small></span></div>
+      <div class="ltile"><span class="lg lg--re">Royal Enfield</span></div>
+      <div class="ltile"><span class="lg lg--iso">ISO<i>9001:2015</i></span></div>
+    </div>
   </div>
 </div>
 
-<!-- ============ INTRO ============ -->
+<!-- ============ INTRO / FLEET ============ -->
 <section class="intro section" id="intro">
   <div class="intro__inner reveal">
     <span class="kicker">The short version</span>
-    <h2 class="intro__line">One service station in 2006. A <em>449-bus electric fleet</em> today. Built one disciplined depot at a time.</h2>
-    <p class="intro__body">We run and maintain electric buses for <strong>Switch Mobility</strong> and <strong>JBM</strong> across four states, keep roughly <strong>450 government buses</strong> moving in West Bengal, and operate a Tata Motors service station with two Royal Enfield outlets. Zero to 300 plus e-buses in about 12 months.</p>
+    <h2 class="intro__line">One service station in 2006.<br>A whole <em>electric fleet</em> today.</h2>
+  </div>
+
+  <div class="fleet reveal" id="fleet">
+    <div class="fleet__top">
+      <div class="fleet__count"><span class="fleet__num" data-count="449">0</span><span class="fleet__unit">electric buses<br>on the road today</span></div>
+      <div class="fleet__grow">
+        <span class="fleet__grow-line">zero <b>&rarr;</b> 300+ e-buses in <strong>~12 months</strong></span>
+        <span class="fleet__grow-sub">then on to 449 across five states</span>
+      </div>
+    </div>
+    <div class="fleet__viz" id="fleetViz" aria-hidden="true"></div>
+    <div class="fleet__legend">
+      <span><i style="background:var(--green-bright)"></i>Bengaluru 120</span>
+      <span><i style="background:#3fd089"></i>Guwahati 100</span>
+      <span><i style="background:var(--navy-2)"></i>Delhi 168</span>
+      <span><i style="background:var(--navy)"></i>Dolvi 61</span>
+    </div>
+    <p class="fleet__note">Plus roughly <strong>450 government ICE buses</strong> maintained in West Bengal, a Tata Motors service station and two Royal Enfield outlets.</p>
   </div>
 </section>
 
@@ -227,6 +263,7 @@
     </div>
     <button class="car__nav car__nav--next" id="carNext" aria-label="Next" data-cursor>&rarr;</button>
     <div class="car__dots" id="carDots"></div>
+    <div class="car__hint" id="carHint"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V5a2 2 0 0 1 4 0v6"/><path d="M12 11V4a2 2 0 0 1 4 0v7"/><path d="M16 11V6a2 2 0 0 1 4 0v9a6 6 0 0 1-6 6h-2a6 6 0 0 1-5-3l-3-5a2 2 0 0 1 3-2l2 2"/></svg> Swipe to read more</div>
   </div>
 </section>
 
