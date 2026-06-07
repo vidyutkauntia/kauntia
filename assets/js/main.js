@@ -185,14 +185,14 @@
 
   /* ---------- LinkedIn links (filled when URLs provided) ---------- */
   var LI = {
-    sanjeev: "",
-    vidyut: "",
-    vidush: ""
+    sanjeev: "https://www.linkedin.com/in/sanjeevkauntia",
+    vidyut: "https://www.linkedin.com/in/vidyutkauntia",
+    vidush: "https://www.linkedin.com/in/vidush-kauntia"
   };
   $$(".linkin[data-li]").forEach(function (a) {
     var u = LI[a.dataset.li];
-    if (u) { a.href = u; }
-    else { a.href = "https://www.linkedin.com/search/results/all/?keywords=" + encodeURIComponent(a.dataset.li + " kauntia"); }
+    if (u) a.href = u;
+    else a.href = "https://www.linkedin.com/search/results/all/?keywords=" + encodeURIComponent(a.dataset.li + " kauntia");
   });
 
   /* ---------- rAF scroll loop ---------- */
