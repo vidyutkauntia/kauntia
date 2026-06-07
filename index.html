@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kauntia Motor Works — Building India's Capital-Light E-Bus Operating Platform</title>
+<meta name="description" content="Kauntia Motor Works (KMW) is a two-decade-old mobility operator running 449+ electric buses across India for leading OEMs. ISO 9001:2015 certified." />
+<meta property="og:title" content="Kauntia Motor Works" />
+<meta property="og:description" content="Building India's capital-light e-bus operating platform — 449+ electric buses, 5 states, two decades of disciplined operations." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- Scroll progress road -->
+<div class="scroll-rail" aria-hidden="true"><span class="scroll-bus" id="scrollBus"></span></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__brand" aria-label="Kauntia Motor Works home">
+    <img src="assets/img/logo.svg" alt="" class="nav__logo" />
+    <span class="nav__name">Kauntia<span class="nav__name-light"> Motor Works</span></span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#journey">Journey</a>
+    <a href="#opportunity">Opportunity</a>
+    <a href="#edge">Why We Win</a>
+    <a href="#network">Network</a>
+    <a href="#leadership">Leadership</a>
+  </nav>
+  <a href="#contact" class="btn btn--nav">Get in touch</a>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__sky" aria-hidden="true">
+    <span class="hero__sun"></span>
+    <span class="hero__city"></span>
+  </div>
+  <div class="hero__road" aria-hidden="true">
+    <span class="lane lane--l"></span>
+    <span class="lane lane--r"></span>
+    <span class="dashes"></span>
+    <span class="hero__bus" id="heroBus">
+      <!-- e-bus, front 3/4 -->
+      <svg viewBox="0 0 260 150" width="100%" height="100%">
+        <defs>
+          <linearGradient id="busBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e7e9f5"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="130" cy="140" rx="118" ry="11" fill="rgba(8,10,40,.35)"/>
+        <rect x="22" y="26" width="216" height="98" rx="20" fill="url(#busBody)" stroke="#cfd2e6"/>
+        <rect x="22" y="26" width="216" height="20" rx="14" fill="#2E3192"/>
+        <rect x="34" y="56" width="58" height="40" rx="7" fill="#14152E"/>
+        <rect x="100" y="56" width="44" height="40" rx="6" fill="#1b1f4d"/>
+        <rect x="152" y="56" width="44" height="40" rx="6" fill="#1b1f4d"/>
+        <rect x="204" y="56" width="26" height="40" rx="6" fill="#1b1f4d"/>
+        <rect x="22" y="104" width="216" height="8" fill="#CFA650"/>
+        <rect x="22" y="33" width="120" height="7" rx="4" fill="#CFA650" opacity=".85"/>
+        <rect x="30" y="112" width="20" height="10" rx="3" fill="#ffd34d"/>
+        <circle cx="74" cy="126" r="17" fill="#14152E"/><circle cx="74" cy="126" r="7" fill="#5b6080"/>
+        <circle cx="190" cy="126" r="17" fill="#14152E"/><circle cx="190" cy="126" r="7" fill="#5b6080"/>
+        <rect x="150" y="14" width="46" height="9" rx="4" fill="#14152E"/>
+        <text x="173" y="22" font-size="8" fill="#ffd34d" text-anchor="middle" font-family="monospace">KMW · 04</text>
+      </svg>
+    </span>
+  </div>
+
+  <div class="hero__inner">
+    <span class="hero__eyebrow">Kauntia Motor Works Pvt. Ltd. · Est. 2006</span>
+    <h1 class="hero__title">Building India's<br><span class="grad-gold">capital-light</span> <span class="grad-green">e-bus</span><br>operating platform.</h1>
+    <p class="hero__sub">Two decades of heavy-duty fleet operations. Today, one of India's most disciplined electric-bus operators — trusted by the OEMs leading the transition.</p>
+    <div class="hero__cta">
+      <a href="#journey" class="btn btn--primary">Take the journey <span class="btn__arrow">→</span></a>
+      <a href="#contact" class="btn btn--ghost">Partner with us</a>
+    </div>
+  </div>
+
+  <div class="hero__stats" id="heroStats">
+    <div class="hstat"><span class="hstat__num" data-count="449" data-suffix="+">0</span><span class="hstat__label">E-buses operated</span></div>
+    <div class="hstat"><span class="hstat__num" data-count="800" data-suffix="+">0</span><span class="hstat__label">People employed</span></div>
+    <div class="hstat"><span class="hstat__num" data-count="5">0</span><span class="hstat__label">States</span></div>
+    <div class="hstat"><span class="hstat__num">ISO</span><span class="hstat__label">9001:2015 certified</span></div>
+  </div>
+  <a href="#intro" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro section" id="intro">
+  <div class="reveal">
+    <span class="kicker">The short version</span>
+    <h2 class="intro__line">From a single service station to a <em>449-strong electric fleet</em> — built one disciplined depot at a time.</h2>
+    <p class="intro__body">Kauntia Motor Works operates and maintains electric buses for <strong>Switch Mobility</strong> and <strong>JBM</strong> across Karnataka, Maharashtra, Delhi and Assam — while maintaining <strong>~450 government ICE buses</strong> in West Bengal, a Tata Motors CV service station, and two Royal Enfield outlets. We grew from <strong>zero to 300+ e-buses in roughly 12 months.</strong></p>
+  </div>
+</section>
+
+<!-- ============ JOURNEY (the road) ============ -->
+<section class="journey section" id="journey">
+  <div class="section__head reveal">
+    <span class="kicker">2006 → today</span>
+    <h2 class="section__title">Two decades on the road</h2>
+    <p class="section__lede">Follow the road down. Where it turns <span class="ink-green">green</span>, we turned electric.</p>
+  </div>
+
+  <div class="road-wrap" id="roadWrap">
+    <div class="road" id="road">
+      <span class="road__line"></span>
+      <span class="road__bus" id="roadBus">
+        <svg viewBox="0 0 60 110" width="100%" height="100%">
+          <rect x="8" y="4" width="44" height="102" rx="16" fill="#fff" stroke="#cdd0e6" stroke-width="2"/>
+          <rect x="8" y="4" width="44" height="26" rx="14" fill="#2E3192"/>
+          <rect x="15" y="34" width="30" height="16" rx="4" fill="#1b1f4d"/>
+          <rect x="15" y="55" width="30" height="14" rx="3" fill="#222a6b"/>
+          <rect x="15" y="74" width="30" height="14" rx="3" fill="#222a6b"/>
+          <circle cx="14" cy="44" r="3" fill="#ffd34d"/><circle cx="46" cy="44" r="3" fill="#ffd34d"/>
+          <rect x="8" y="96" width="44" height="8" rx="4" fill="#CFA650"/>
+        </svg>
+      </span>
+    </div>
+
+    <ol class="milestones" id="milestones">
+      <li class="ms" data-side="l"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2006</span><h3>The foundation</h3><p>A Tata-authorised commercial-vehicle service station opens in West Bengal. The operating discipline starts here.</p></div></li>
+      <li class="ms" data-side="r"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2008</span><h3>First fleet contracts</h3><p>On-site servicing begins for the West Bengal Transport Corporation — the start of large public-fleet maintenance.</p></div></li>
+      <li class="ms" data-side="l"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2013–19</span><h3>Scaling ICE maintenance</h3><p>Grew to <strong>400+ government buses across 13 depots</strong> — engine overhauls, preventive maintenance, hard-won depot know-how.</p></div></li>
+      <li class="ms" data-side="r"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2020</span><h3>Built for scale</h3><p>Workshop capacity doubled to <strong>12 bays</strong>, fully BS-VI compliant — the platform ready for what came next.</p></div></li>
+      <li class="ms ms--pivot" data-side="l"><span class="ms__dot"></span><div class="ms__card"><span class="pivot-tag">⚡ The electric pivot</span><span class="ms__year">2023</span><h3>Going electric</h3><p>New venture: <strong>120 Switch e-buses in Bengaluru.</strong> Zero to a running electric depot — the road turns green.</p></div></li>
+      <li class="ms" data-side="r"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2024</span><h3>Multi-state operator</h3><p><strong>61 Switch e-buses at Dolvi, Maharashtra</strong> — and India's <strong>first female charging operators.</strong></p></div></li>
+      <li class="ms" data-side="l"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2025</span><h3>National footprint</h3><p><strong>168 JBM e-buses in Delhi</strong> — disciplined operations now span the country, OEM to OEM.</p></div></li>
+      <li class="ms ms--future" data-side="r"><span class="ms__dot"></span><div class="ms__card"><span class="ms__year">2026</span><h3>Into the East</h3><p>Backed operations in <strong>Guwahati for 100 EV buses</strong> — extending the platform into a new region as a 50,000-bus national pipeline consolidates toward disciplined operators.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ OPPORTUNITY ============ -->
+<section class="opp section section--dark" id="opportunity">
+  <div class="section__head reveal">
+    <span class="kicker kicker--gold">The macro</span>
+    <h2 class="section__title section__title--light">An inevitability, not a bet</h2>
+    <p class="section__lede section__lede--light">India runs ~12,000 e-buses today. Policy certainty, bankable contracts and proven unit economics make the next 50,000 a question of <em>when</em>, not <em>if</em>.</p>
+  </div>
+
+  <div class="opp__grid">
+    <div class="opp__chart reveal">
+      <div class="donut" id="donut" role="img" aria-label="India e-bus market share by OEM">
+        <svg viewBox="0 0 42 42">
+          <circle class="donut__track" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="25.8" stroke="#2E3192" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="24.0" stroke="#3a3fb0" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="17.4" stroke="#CFA650" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="14.2" stroke="#e0bd73" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="6.3"  stroke="#13A05C" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="6.0"  stroke="#1FBF6B" cx="21" cy="21" r="15.915"></circle>
+          <circle class="donut__seg" data-val="6.3"  stroke="#9aa0c4" cx="21" cy="21" r="15.915"></circle>
+        </svg>
+        <div class="donut__center"><span class="donut__big" data-count="12000" data-suffix="">0</span><span class="donut__cap">e-buses in India</span></div>
+      </div>
+      <ul class="legend">
+        <li><i style="background:#2E3192"></i>PMI Electro <b>25.8%</b></li>
+        <li><i style="background:#3a3fb0"></i>Switch <b>24.0%</b></li>
+        <li><i style="background:#CFA650"></i>Olectra <b>17.4%</b></li>
+        <li><i style="background:#e0bd73"></i>JBM <b>14.2%</b></li>
+        <li><i style="background:#13A05C"></i>Tata <b>6.3%</b></li>
+        <li><i style="background:#1FBF6B"></i>Pinnacle <b>6.0%</b></li>
+        <li><i style="background:#9aa0c4"></i>Others <b>6.3%</b></li>
+      </ul>
+    </div>
+
+    <div class="opp__policy">
+      <div class="pcard reveal"><span class="pcard__date">Aug 2023</span><h4>PM-eBus Sewa</h4><p>10,000 e-buses across 169 cities, 10-year PPP. <strong>₹57,613 cr</strong> outlay.</p></div>
+      <div class="pcard reveal"><span class="pcard__date">Sep 2024</span><h4>Payment Security Mechanism</h4><p>Backs <strong>38,000 e-buses</strong> (FY25–29). Eliminates receivable risk on GCC contracts.</p></div>
+      <div class="pcard reveal"><span class="pcard__date">2019–25</span><h4>FAME-II</h4><p>7,000 targeted · 5,135 supplied. Built the installed base and operating know-how.</p></div>
+      <div class="pcard reveal"><span class="pcard__date">CESL-led</span><h4>NEBP National Program</h4><p>Aggregating <strong>50,000 e-buses</strong> — discovered the lowest-ever ₹/km.</p></div>
+    </div>
+  </div>
+
+  <div class="opp__bigstats reveal">
+    <div class="bigstat"><span class="bigstat__num">₹<span data-count="43" data-decimals="0">0</span>.49</span><span class="bigstat__lbl">per km, 12 m e-bus — at or near diesel TCO</span></div>
+    <div class="bigstat"><span class="bigstat__num"><span data-count="86">0</span>%</span><span class="bigstat__lbl">projected e-bus sales CAGR, FY25–30</span></div>
+    <div class="bigstat"><span class="bigstat__num"><span data-count="30">0</span>%</span><span class="bigstat__lbl">EV share target for India by 2030</span></div>
+  </div>
+</section>
+
+<!-- ============ WHY WE WIN ============ -->
+<section class="edge section" id="edge">
+  <div class="section__head reveal">
+    <span class="kicker">Proven execution</span>
+    <h2 class="section__title">Why we win</h2>
+    <p class="section__lede">New operators undercut ₹/km and default within months. We run the numbers at the bus-depot-day level — and the results compound.</p>
+  </div>
+  <div class="rings">
+    <div class="ring reveal" data-pct="104" data-color="#2E3192"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num" data-count="104" data-suffix="%">0</span></div><h4>Bengaluru performance</h4><p>Running 104% of required km — extra revenue for the OEM beyond contract minimums.</p></div>
+    <div class="ring reveal" data-pct="93" data-color="#13A05C"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num">0.70%</span></div><h4>Accident rate</h4><p>Down from 3.05% through training + incentives — protecting assets and reputation.</p></div>
+    <div class="ring reveal" data-pct="95" data-color="#CFA650"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num">&lt;5%</span></div><h4>Attrition at Dolvi</h4><p>Transparent attendance, bunk beds, emergency advances — well below industry norms.</p></div>
+    <div class="ring reveal" data-pct="30" data-color="#1FBF6B"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num" data-count="30" data-suffix="%">0</span></div><h4>Women workforce</h4><p>India's first female charging operators in Maharashtra — diversity drives excellence.</p></div>
+  </div>
+  <div class="edge__quote reveal">
+    <p>“We don't outsource management. Directors sit on-site until stabilization — building SOPs, dashboards and incentive systems before transitioning to local managers.”</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="quotes section" id="clients">
+  <div class="section__head reveal">
+    <span class="kicker">In their words</span>
+    <h2 class="section__title">Trusted by the people we run for</h2>
+    <p class="section__lede">OEMs and enterprise fleet owners — on what it's like to operate with KMW.</p>
+  </div>
+  <div class="quotes__grid">
+    <figure class="quote reveal">
+      <span class="quote__mark">“</span>
+      <blockquote>A dependable partner in our electric fleet operations. Their technical expertise, timely service and transparent communication consistently deliver results — and their inclusive workforce practices reflect a real commitment to excellence.</blockquote>
+      <figcaption><span class="quote__av">RA</span><span><strong>Ravi Anikhindi</strong>Senior Manager, Vehicle &amp; Fleet Management · JSW Steel Ltd</span></figcaption>
+    </figure>
+    <figure class="quote reveal">
+      <span class="quote__mark">“</span>
+      <blockquote>They stand out for their professionalism — smooth coordination, smart route planning, minimal downtime. What truly sets them apart is a proactive approach: tackling issues before they escalate.</blockquote>
+      <figcaption><span class="quote__av">SG</span><span><strong>Sivaraman G</strong>Depot Manager, Chandapura Bengaluru · OHM Global Mobility</span></figcaption>
+    </figure>
+    <figure class="quote reveal">
+      <span class="quote__mark">“</span>
+      <blockquote>Their management team is extremely hands-on — personally overseeing operations until stability is achieved. Strong driver training reduces accidents, and exemplary manpower management keeps attrition under 5%. Highly recommended.</blockquote>
+      <figcaption><span class="quote__av">MD</span><span><strong>Muralidharan Desikan</strong>Head of Operations · OHM Global Mobility</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ NETWORK ============ -->
+<section class="network section section--dark" id="network">
+  <div class="section__head reveal">
+    <span class="kicker kicker--gold">Where we operate</span>
+    <h2 class="section__title section__title--light">A five-state operating network</h2>
+    <p class="section__lede section__lede--light">449 electric buses live, ~450 government ICE buses under maintenance, plus retail service.</p>
+  </div>
+  <div class="route reveal">
+    <span class="route__line"></span>
+    <div class="stop"><span class="stop__pin"></span><span class="stop__count" data-count="120">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Bengaluru</span><span class="stop__meta">Karnataka · Switch</span></div>
+    <div class="stop"><span class="stop__pin"></span><span class="stop__count" data-count="61">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Dolvi</span><span class="stop__meta">Maharashtra · Switch</span></div>
+    <div class="stop"><span class="stop__pin"></span><span class="stop__count" data-count="100">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Guwahati</span><span class="stop__meta">Assam</span></div>
+    <div class="stop"><span class="stop__pin"></span><span class="stop__count" data-count="168">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Delhi</span><span class="stop__meta">JBM Group</span></div>
+    <div class="stop"><span class="stop__pin stop__pin--ice"></span><span class="stop__count" data-count="450">0</span><span class="stop__unit">ICE buses</span><span class="stop__city">West Bengal</span><span class="stop__meta">Govt O&amp;M · Tata CV station</span></div>
+  </div>
+  <p class="network__foot reveal">+ Two Royal Enfield sales &amp; service outlets &nbsp;·&nbsp; Partners: <strong>Switch Mobility</strong>, <strong>JBM</strong>, <strong>Tata Motors</strong></p>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="leaders section" id="leadership">
+  <div class="section__head reveal">
+    <span class="kicker">At the wheel</span>
+    <h2 class="section__title">Operations, technology &amp; finance</h2>
+    <p class="section__lede">A rare blend under one roof — and founder ownership on the ground.</p>
+  </div>
+  <div class="leaders__grid">
+    <figure class="leader reveal">
+      <div class="leader__photo"><img src="assets/img/sanjeev.jpg" alt="Sanjeev Kauntia" loading="lazy"/></div>
+      <figcaption><h3>Sanjeev Kauntia</h3><span class="leader__role">Managing Director · Operations</span><p>26+ years as a serial entrepreneur in automotive services. Deep vendor and depot network with proven on-ground operating discipline.</p></figcaption>
+    </figure>
+    <figure class="leader reveal">
+      <div class="leader__photo"><img src="assets/img/vidyut.jpg" alt="Vidyut Kauntia" loading="lazy"/></div>
+      <figcaption><h3>Vidyut Kauntia</h3><span class="leader__role">Director · Strategic Operations &amp; Tech</span><p>Uber India (market entry) and SWVL Dubai. Founded KMW's EV-bus vertical — a tech-ops, data-driven approach to reliability, cost/km and driver productivity.</p></figcaption>
+    </figure>
+    <figure class="leader reveal">
+      <div class="leader__photo"><img src="assets/img/vidush.jpg" alt="Vidush Kauntia" loading="lazy"/></div>
+      <figcaption><h3>Vidush Kauntia</h3><span class="leader__role">Director · Finance &amp; Risk</span><p>CFA &amp; CA. Leads capital allocation, project-finance structuring and risk governance across all operations.</p></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact section" id="contact">
+  <div class="contact__inner reveal">
+    <span class="kicker kicker--gold">Let's talk</span>
+    <h2 class="contact__title">Ready to scale the<br>electric transition — together.</h2>
+    <p class="contact__sub">For investment, OEM partnership or operations enquiries, reach the leadership directly.</p>
+    <div class="contact__actions">
+      <a href="mailto:info@kauntia.com" class="btn btn--primary btn--lg" id="emailBtn">info@kauntia.com</a>
+      <a href="tel:+913340701494" class="btn btn--ghost btn--lg" id="phoneBtn">033 4070 1494</a>
+    </div>
+    <address class="contact__addr">FMC Fortuna, #C-1, 3rd Floor, 234/3A A.J.C. Bose Road, Kolkata 700020</address>
+    <p class="contact__note">Kauntia Motor Works Pvt. Ltd. · ISO 9001:2015 Certified · <a href="https://kauntia.com/" target="_blank" rel="noopener">kauntia.com</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="assets/img/logo-white.svg" alt="" class="footer__logo"/>
+  <p>© <span id="yr">2026</span> Kauntia Motor Works Pvt. Ltd. · <a href="https://kauntia.com/" target="_blank" rel="noopener">kauntia.com</a> · Building India's capital-light e-bus operating platform.</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
