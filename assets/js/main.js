@@ -30,20 +30,55 @@
     document.addEventListener("mouseleave", function () { cur.style.opacity = dot.style.opacity = "0"; });
   }
 
-  /* ---------- nav: states + scroll-spy + progress ---------- */
+  /* ---------- nav: states + scroll-spy + progress + wheel ---------- */
   var nav = $("#nav"), hero = $("#top"), progress = $("#progress");
   var navLinks = $$("#navLinks a");
   var sections = navLinks.map(function (a) { return $(a.getAttribute("href")); }).filter(Boolean);
+  var wheelRotor = $("#wheelRotor"), wheelProg = $("#wheelProg"), WHEEL_MAXDEG = 1000, WP_C = 295.31;
   function onScroll() {
     var y = window.scrollY, h = document.documentElement;
+    var p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+    p = Math.max(0, Math.min(1, p));
     nav.classList.toggle("scrolled", y > 40);
     nav.classList.toggle("hero-mode", y < hero.offsetHeight - 90);
-    progress.style.transform = "scaleX(" + (h.scrollTop / (h.scrollHeight - h.clientHeight || 1)) + ")";
+    progress.style.transform = "scaleX(" + p + ")";
+    if (wheelRotor) wheelRotor.style.transform = "rotate(" + (p * WHEEL_MAXDEG) + "deg)";
+    if (wheelProg) wheelProg.style.strokeDashoffset = WP_C * (1 - p);
     // spy
     var mid = y + innerHeight * 0.32, active = null;
     sections.forEach(function (s) { if (s.offsetTop <= mid) active = s.id; });
     navLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === "#" + active); });
   }
+
+  /* ---------- steering wheel: drag to drive (native scroll stays intact) ---------- */
+  (function steering() {
+    var wheel = $("#wheel"), tip = $("#wheelTip");
+    if (!wheel) return;
+    // gentle one-time nudge so users notice it is interactive
+    if (!reduce) { setTimeout(function () { tip && tip.classList.add("show"); }, 1400);
+      setTimeout(function () { tip && tip.classList.remove("show"); }, 6500); }
+    var dragging = false, lastAng = 0;
+    function ang(e) {
+      var r = wheel.getBoundingClientRect();
+      return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2));
+    }
+    wheel.addEventListener("pointerdown", function (e) {
+      dragging = true; lastAng = ang(e); wheel.classList.add("grab");
+      try { wheel.setPointerCapture(e.pointerId); } catch (x) {}
+      tip && tip.classList.remove("show"); e.preventDefault();
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      var a = ang(e), d = a - lastAng;
+      if (d > Math.PI) d -= 2 * Math.PI; else if (d < -Math.PI) d += 2 * Math.PI;
+      lastAng = a;
+      var doc = document.documentElement;
+      var factor = (doc.scrollHeight - doc.clientHeight) / 760; // ~2 turns = whole page
+      window.scrollBy(0, (d * 180 / Math.PI) * factor); // clockwise (right) scrolls down
+    });
+    window.addEventListener("pointerup", function () { dragging = false; wheel.classList.remove("grab"); });
+    window.addEventListener("pointercancel", function () { dragging = false; wheel.classList.remove("grab"); });
+  })();
 
   /* ---------- mobile menu ---------- */
   var burger = $("#burger");

@@ -51,6 +51,24 @@ img{display:block;max-width:100%}
 .cursor.is-hover{width:54px;height:54px;background:rgba(207,166,80,.18);border-color:var(--gold)}
 @media(hover:none),(pointer:coarse){.cursor,.cursor-dot{display:none}}
 
+/* ---------- steering wheel ---------- */
+.wheel{position:fixed;right:24px;bottom:24px;width:84px;height:84px;z-index:1200;cursor:grab;touch-action:none;filter:drop-shadow(0 12px 26px rgba(15,16,48,.4));transition:transform .35s var(--pop)}
+.wheel:hover{transform:scale(1.07)}
+.wheel.grab{cursor:grabbing}
+.wheel svg{position:absolute;inset:0;width:100%;height:100%}
+.wheel__rotor{transition:transform .08s linear}
+.wheel__prog{transform:rotate(-90deg)}
+.wp-track{fill:none;stroke:rgba(255,255,255,.25);stroke-width:3}
+.wp-bar{fill:none;stroke:var(--green-bright);stroke-width:3;stroke-linecap:round;stroke-dasharray:295.3;stroke-dashoffset:295.3;transition:stroke-dashoffset .1s linear}
+.wheel::after{content:'';position:absolute;inset:-7px;border-radius:50%;background:rgba(251,251,248,.9);z-index:-1;box-shadow:0 12px 26px -10px rgba(15,16,48,.45)}
+.wheel__tip{position:absolute;right:96px;top:50%;transform:translateY(-50%);background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:6px 11px;border-radius:8px;white-space:nowrap;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
+.wheel__tip::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%) rotate(45deg);width:9px;height:9px;background:var(--navy)}
+.wheel:hover .wheel__tip,.wheel__tip.show{opacity:1}
+.wheel__tip.show{animation:tipPulse 2.2s ease-in-out 2}
+@keyframes tipPulse{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-5px)}}
+@media(max-width:680px){.wheel{width:62px;height:62px;right:14px;bottom:14px}.wheel__tip{display:none}}
+@media(prefers-reduced-motion:reduce){.wheel__rotor{transition:none}}
+
 /* ---------- buttons ---------- */
 .btn{position:relative;display:inline-flex;align-items:center;gap:9px;font-family:'Hanken Grotesk';font-weight:600;font-size:.98rem;padding:14px 26px;border-radius:100px;transition:transform .35s var(--ease),box-shadow .35s,background .3s,color .3s;border:1.5px solid transparent;white-space:nowrap;overflow:hidden;isolation:isolate}
 .btn--primary{background:var(--grad-brand);color:#fff;box-shadow:0 14px 30px -12px rgba(46,49,146,.7);background-size:160% 160%}

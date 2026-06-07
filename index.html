@@ -22,6 +22,24 @@
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
+<!-- steering wheel: scroll indicator + optional drag-to-drive control -->
+<div class="wheel" id="wheel" aria-hidden="true" title="Turn me to drive the page, or just scroll">
+  <svg class="wheel__prog" viewBox="0 0 100 100"><circle class="wp-track" cx="50" cy="50" r="47"/><circle class="wp-bar" id="wheelProg" cx="50" cy="50" r="47"/></svg>
+  <svg class="wheel__rotor" id="wheelRotor" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#2E3192" stroke-width="9"/>
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#CFA650" stroke-width="2" opacity=".7"/>
+    <g stroke="#2E3192" stroke-width="8" stroke-linecap="round">
+      <line x1="50" y1="50" x2="50" y2="86"/>
+      <line x1="50" y1="50" x2="18" y2="32"/>
+      <line x1="50" y1="50" x2="82" y2="32"/>
+    </g>
+    <circle cx="50" cy="50" r="13" fill="#2E3192"/>
+    <circle cx="50" cy="50" r="13" fill="none" stroke="#CFA650" stroke-width="2"/>
+    <circle cx="50" cy="50" r="4" fill="#CFA650"/>
+  </svg>
+  <span class="wheel__tip" id="wheelTip">Drive me</span>
+</div>
+
 <!-- ============ TOP BAR (scrolling) ============ -->
 <div class="topbar" id="topbar" aria-hidden="true">
   <div class="topbar__track">
