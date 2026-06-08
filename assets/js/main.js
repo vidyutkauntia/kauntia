@@ -222,12 +222,14 @@
     });
   })();
 
-  /* ---------- journey map: drive the bus when it enters view ---------- */
+  /* ---------- journey map: road draws, nodes surface in sequence, bus drives ---------- */
   (function jmapBus() {
-    var motion = document.getElementById("jbusMotion"), jmap = $("#jmap");
-    if (!motion || !jmap || reduce) return;
+    var jmap = $("#jmap"); if (!jmap) return;
+    var motion = document.getElementById("jbusMotion");
+    // stagger the node reveals so they appear after the road begins drawing
+    $$(".jnode").forEach(function (n, i) { n.style.transitionDelay = (0.55 + i * 0.07) + "s"; });
     var io = new IntersectionObserver(function (es) {
-      es.forEach(function (en) { if (en.isIntersecting) { try { motion.beginElement(); } catch (x) {} } });
+      es.forEach(function (en) { if (en.isIntersecting && motion && !reduce) { try { motion.beginElement(); } catch (x) {} } });
     }, { threshold: 0.35 });
     io.observe(jmap);
   })();
