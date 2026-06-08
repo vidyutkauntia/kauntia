@@ -149,6 +149,8 @@
     s.addEventListener("click", function () { focus(i); });
   });
   if (big) big.parentNode.addEventListener("click", function () { if (focused >= 0) resetFocus(); });
+  var donutReset = $("#donutReset");
+  if (donutReset) donutReset.addEventListener("click", resetFocus);
 
   /* ---------- rings ---------- */
   function fillRing(ring) {
@@ -182,6 +184,17 @@
   }, { threshold: 0.5 });
   $$(".ring").forEach(function (r) { ioRing.observe(r); });
 
+  /* ---------- logo marquee: repeat enough tiles for a seamless, gap-free loop ---------- */
+  (function logos() {
+    var track = $("#logosTrack");
+    if (!track) return;
+    var base = track.innerHTML;          // the starting set of tiles
+    track.innerHTML = base;
+    var guard = 0;
+    while (track.scrollWidth < window.innerWidth * 1.3 && guard < 20) { track.innerHTML += base; guard++; }
+    track.innerHTML = track.innerHTML + track.innerHTML; // two identical halves -> -50% loops seamlessly
+  })();
+
   /* ---------- fleet grid (449 buses, by city) ---------- */
   (function fleet() {
     var viz = $("#fleetViz"); if (!viz) return;
@@ -202,7 +215,17 @@
     });
   })();
 
-  /* ---------- journey: bus sway + green road fill + road motion ---------- */
+  /* ---------- journey map: drive the bus when it enters view ---------- */
+  (function jmapBus() {
+    var motion = document.getElementById("jbusMotion"), jmap = $("#jmap");
+    if (!motion || !jmap || reduce) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { try { motion.beginElement(); } catch (x) {} } });
+    }, { threshold: 0.35 });
+    io.observe(jmap);
+  })();
+
+  /* ---------- (legacy vertical road; no-op if absent) ---------- */
   var roadBus = $("#roadBus"), road = $("#road"), roadFill = $("#roadFill");
   var roadLine = road ? road.querySelector(".road__line") : null;
   function journey() {
@@ -273,7 +296,25 @@
     tabs.forEach(function (t, i) { t.addEventListener("click", function () { select(i); }); });
   })();
 
-  /* ---------- LinkedIn links (filled when URLs provided) ---------- */
+  /* ---------- Life gallery lightbox ---------- */
+  (function lightbox() {
+    var lb = $("#lightbox"), img = $("#lbImg"), cap = $("#lbCap"), closeBtn = $("#lbClose");
+    if (!lb) return;
+    function show(t) {
+      var im = t.querySelector("img");
+      img.src = im.src; img.alt = im.alt || ""; cap.textContent = t.dataset.cap || "";
+      lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+    }
+    function hide() { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+    $$(".gtile").forEach(function (t) {
+      t.addEventListener("click", function () { show(t); });
+    });
+    closeBtn.addEventListener("click", hide);
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("lightbox__fig")) hide(); });
+    window.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+  })();
+
+  /* ---------- LinkedIn links (legacy; team links are hard-coded in HTML) ---------- */
   var LI = {
     sanjeev: "https://www.linkedin.com/in/sanjeevkauntia",
     vidyut: "https://www.linkedin.com/in/vidyutkauntia",
