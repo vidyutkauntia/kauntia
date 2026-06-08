@@ -111,8 +111,10 @@ img{display:block;max-width:100%}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--navy-deep);padding:150px 20px clamp(90px,12vh,150px)}
 .hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:120px;z-index:2;background:linear-gradient(180deg,transparent,var(--navy-deep));pointer-events:none}
 .hero__glow{position:absolute;top:42%;left:50%;width:min(900px,90vw);height:520px;transform:translate(-50%,-50%);z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(207,166,80,.12),rgba(31,191,107,.06) 45%,transparent 70%)}
-.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.24}
-.hero__video-tint{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(19,21,59,.62),rgba(12,13,40,.82))}
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.62}
+.hero__video-tint{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,18,46,.34),rgba(11,12,36,.56) 70%,rgba(11,12,36,.72));}
+/* subtle dark wash behind the headline keeps text readable while the video stays visible */
+.hero__video-tint::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 42%,rgba(10,11,34,.5),transparent 75%)}
 .hero__bg{position:absolute;inset:0;overflow:hidden;z-index:1}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
 .blob--1{width:520px;height:520px;background:radial-gradient(circle,#3a40c4,transparent 70%);top:-12%;left:-6%}
@@ -477,9 +479,10 @@ img{display:block;max-width:100%}
 .footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;padding:46px 20px;font-size:.88rem}
 .footer__logo{width:44px;margin:0 auto 16px}
 
-/* ============ reveal ============ */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+/* ============ reveal (cinematic) ============ */
+.reveal{opacity:0;transform:translateY(42px);filter:blur(5px);transition:opacity .95s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1),filter .8s ease}
+.reveal.in{opacity:1;transform:none;filter:blur(0)}
+.section__head.reveal{transition-duration:1.05s}
 
 /* ---------- donut click-to-focus ---------- */
 .donut.focusing .donut__seg{opacity:.2}
@@ -574,6 +577,7 @@ img{display:block;max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.1ms!important;scroll-behavior:auto}
-  .reveal,.ms,.stop,[data-rise]{opacity:1;transform:none}
+  .reveal,.ms,.stop,[data-rise]{opacity:1;transform:none;filter:none}
+  .hero__inner{transform:none!important;opacity:1!important}
   .stop__sketch path,.stop__sketch line,.stop__sketch polyline{stroke-dashoffset:0}
 }
