@@ -68,34 +68,15 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg" aria-hidden="true">
     <source src="assets/video/hero-ev.mp4" type="video/mp4" />
   </video>
   <div class="hero__video-tint" aria-hidden="true"></div>
   <div class="hero__bg" aria-hidden="true"><span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span></div>
   <div class="hero__grid-lines" aria-hidden="true"></div>
-  <div class="hero__road" aria-hidden="true" id="heroRoad">
-    <span class="lane lane--l"></span><span class="lane lane--r"></span><span class="dashes"></span>
-    <span class="hero__bus" id="heroBus">
-      <svg viewBox="0 0 260 150" width="100%" height="100%">
-        <defs><linearGradient id="bb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e7e9f5"/></linearGradient></defs>
-        <ellipse cx="130" cy="141" rx="120" ry="10" fill="rgba(8,10,40,.4)"/>
-        <rect x="22" y="26" width="216" height="98" rx="20" fill="url(#bb)" stroke="#cfd2e6"/>
-        <rect x="22" y="26" width="216" height="20" rx="14" fill="#2E3192"/>
-        <rect x="34" y="56" width="58" height="40" rx="7" fill="#0e1030"/>
-        <rect x="100" y="56" width="44" height="40" rx="6" fill="#1b1f4d"/>
-        <rect x="152" y="56" width="44" height="40" rx="6" fill="#1b1f4d"/>
-        <rect x="204" y="56" width="26" height="40" rx="6" fill="#1b1f4d"/>
-        <rect x="22" y="104" width="216" height="8" fill="#CFA650"/>
-        <rect x="22" y="33" width="120" height="7" rx="4" fill="#CFA650" opacity=".85"/>
-        <circle cx="40" cy="116" r="6" fill="#ffd34d" class="headlight"/>
-        <circle cx="74" cy="126" r="17" fill="#0e1030"/><circle cx="74" cy="126" r="7" fill="#5b6080"/>
-        <circle cx="190" cy="126" r="17" fill="#0e1030"/><circle cx="190" cy="126" r="7" fill="#5b6080"/>
-      </svg>
-    </span>
-  </div>
+  <div class="hero__glow" aria-hidden="true"></div>
 
-  <div class="hero__inner">
+  <div class="hero__inner" id="heroInner">
     <span class="hero__eyebrow" data-rise="1">Kauntia Motor Works · Since 2006</span>
     <h1 class="hero__title" data-rise="2">India's <span class="g-gold">capital&#8209;light</span><br><span class="g-green">e&#8209;bus</span> operating platform.</h1>
     <p class="hero__sub" data-rise="3">Two decades running heavy fleets. Today, one of the most disciplined electric bus operators in the country, trusted by the OEMs driving the shift.</p>
@@ -124,11 +105,13 @@
       <div class="ltile"><span class="lg lg--jbm">JBM<small>GROUP</small></span></div>
       <div class="ltile"><span class="lg lg--re">Royal Enfield</span></div>
       <div class="ltile"><span class="lg lg--iso">ISO<i>9001:2015</i></span></div>
+      <div class="ltile"><span class="lg lg--ohm">OHM<small>MOBILITY</small></span></div>
       <div class="ltile"><span class="lg lg--tata">TATA<small>MOTORS</small></span></div>
       <div class="ltile"><span class="lg lg--switch">SW<i>//</i>TCH</span></div>
       <div class="ltile"><span class="lg lg--jbm">JBM<small>GROUP</small></span></div>
       <div class="ltile"><span class="lg lg--re">Royal Enfield</span></div>
       <div class="ltile"><span class="lg lg--iso">ISO<i>9001:2015</i></span></div>
+      <div class="ltile"><span class="lg lg--ohm">OHM<small>MOBILITY</small></span></div>
     </div>
   </div>
 </div>
@@ -323,7 +306,7 @@
   <div class="rings">
     <div class="ring reveal" data-pct="100" data-color="#2E3192"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num" data-count="104" data-suffix="%">0</span></div><h4>Bengaluru km delivered</h4><p>104% of required kilometres. Extra revenue for the OEM, beyond contract minimums.</p></div>
     <div class="ring reveal" data-pct="93" data-color="#13A05C"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num">0.70%</span></div><h4>Accident rate</h4><p>Down from 3.05%, through training and incentives. Assets and reputation, protected.</p></div>
-    <div class="ring reveal" data-pct="95" data-color="#CFA650"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num">&lt;5%</span></div><h4>Attrition at Dolvi</h4><p>Transparent attendance, bunk beds, emergency advances. Well below industry norms.</p></div>
+    <div class="ring reveal" data-pct="95" data-color="#CFA650"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num">&lt;10%</span></div><h4>Attrition at Dolvi</h4><p>Transparent attendance, bunk beds, emergency advances. Well below industry norms.</p></div>
     <div class="ring reveal" data-pct="30" data-color="#1FBF6B"><div class="ring__svg"><svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg><span class="ring__num" data-count="30" data-suffix="%">0</span></div><h4>Women workforce</h4><p>India's first female charging operators, in Maharashtra. Diversity drives the numbers.</p></div>
   </div>
   <div class="edge__quote reveal"><p>We do not outsource management. Our directors sit on-site until operations stabilise, building the SOPs, dashboards and incentives, then hand a running system to local managers.</p></div>
@@ -347,7 +330,7 @@
       <h3 class="diff__gtitle">HR excellence</h3>
       <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 8h5M9.5 11h5M13.5 8c0 2.6-1.8 3.6-3.5 3.6l3.8 4.4"/></svg></span><div><h4>Prompt &amp; automated payments</h4><p>Salaries on time, every time. Automated, predictable and transparent.</p></div></div>
       <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span><div><h4>Transparency &amp; accountability</h4><p>Open dashboards and clear ownership at every depot, OEM to operator.</p></div></div>
-      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5"/><path d="M8.6 12.5L7 21l5-2.7L17 21l-1.6-8.5"/></svg></span><div><h4>Rewards &amp; recognition</h4><p>Employee of the Month and real incentives keep attrition below 5%.</p></div></div>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5"/><path d="M8.6 12.5L7 21l5-2.7L17 21l-1.6-8.5"/></svg></span><div><h4>Rewards &amp; recognition</h4><p>Employee of the Month and real incentives keep attrition below 10%.</p></div></div>
     </div>
   </div>
 </section>
@@ -375,7 +358,7 @@
         </figure>
         <figure class="qcard">
           <span class="qcard__mark">&ldquo;</span>
-          <blockquote>Their management team is extremely hands-on, personally overseeing operations until stability is achieved. Strong driver training cuts accidents, and exemplary manpower management keeps attrition under 5%. Highly recommended.</blockquote>
+          <blockquote>Their management team is extremely hands-on, personally overseeing operations until stability is achieved. Strong driver training cuts accidents, and exemplary manpower management keeps attrition under 10%. Highly recommended.</blockquote>
           <figcaption><img class="qcard__av" src="assets/img/people/murali.jpg" alt="Muralidharan Desikan" loading="lazy"/><span class="qcard__who"><strong>Muralidharan Desikan</strong>Head of Operations, OHM Global Mobility</span></figcaption>
         </figure>
       </div>

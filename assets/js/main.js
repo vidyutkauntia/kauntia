@@ -35,12 +35,19 @@
   var navLinks = $$("#navLinks a");
   var sections = navLinks.map(function (a) { return $(a.getAttribute("href")); }).filter(Boolean);
   var wheelRotor = $("#wheelRotor"), wheelProg = $("#wheelProg"), WHEEL_MAXDEG = 1000, WP_C = 295.31;
+  var heroInner = $("#heroInner"), heroVideo = $("#heroVideo");
   function onScroll() {
     var y = window.scrollY, h = document.documentElement;
     var p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
     p = Math.max(0, Math.min(1, p));
     nav.classList.toggle("scrolled", y > 40);
     nav.classList.toggle("hero-mode", y < hero.offsetHeight - 90);
+    // hero parallax (Apple-style): content drifts up + fades, video zooms gently
+    if (!reduce && y < hero.offsetHeight) {
+      var hp = Math.min(y / hero.offsetHeight, 1);
+      if (heroInner) { heroInner.style.transform = "translateY(" + (hp * 70) + "px)"; heroInner.style.opacity = String(Math.max(0, 1 - hp * 1.25)); }
+      if (heroVideo) heroVideo.style.transform = "scale(" + (1 + hp * 0.14) + ")";
+    }
     progress.style.transform = "scaleX(" + p + ")";
     if (wheelRotor) wheelRotor.style.transform = "rotate(" + (p * WHEEL_MAXDEG) + "deg)";
     if (wheelProg) wheelProg.style.strokeDashoffset = WP_C * (1 - p);
