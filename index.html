@@ -68,6 +68,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
+  <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="assets/video/hero-ev.mp4" type="video/mp4" />
+  </video>
+  <div class="hero__video-tint" aria-hidden="true"></div>
   <div class="hero__bg" aria-hidden="true"><span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span></div>
   <div class="hero__grid-lines" aria-hidden="true"></div>
   <div class="hero__road" aria-hidden="true" id="heroRoad">
@@ -151,7 +155,7 @@
       <span><i style="background:var(--navy-2)"></i>Delhi 168</span>
       <span><i style="background:var(--navy)"></i>Dolvi 61</span>
     </div>
-    <p class="fleet__note">Operated for <strong>Switch Mobility</strong> and <strong>JBM</strong>, plus a Tata Motors service station and two Royal Enfield retail outlets.</p>
+    <p class="fleet__note">Operated for <strong>Switch Mobility</strong> and <strong>JBM</strong>, plus a Tata Motors service station and a Royal Enfield dealership.</p>
   </div>
 </section>
 
@@ -175,7 +179,7 @@
       <!-- centre dashes -->
       <path d="M70,90 H900 C975,90 975,270 900,270 H100 C25,270 25,450 100,450 H910" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="11 15" opacity=".85"/>
       <!-- electrification marker -->
-      <g class="jarrow"><text x="250" y="438" text-anchor="middle">NEW VENTURE</text><text x="250" y="470" text-anchor="middle" class="jarrow__sub">ELECTRIFICATION &#8594;</text></g>
+      <g class="jarrow"><text x="265" y="404" text-anchor="middle">NEW VENTURE</text><text x="265" y="422" text-anchor="middle" class="jarrow__sub">ELECTRIFICATION</text><path d="M265,430 L265,442 M260,438 L265,443 L270,438" stroke="#13A05C" stroke-width="2" fill="none" stroke-linecap="round"/></g>
 
       <!-- NODES -->
       <g class="jnode"><title>Tata-authorised commercial vehicle service station opens.</title><circle cx="130" cy="90" r="17"/><text class="jyear" x="130" y="50">2006</text><text class="jlabel" x="130" y="68">Founded</text></g>
@@ -203,10 +207,12 @@
         <animateMotion id="jbusMotion" dur="9s" rotate="auto" fill="freeze" begin="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#jpath"/></animateMotion>
       </g>
     </svg>
+    <div class="jtip" id="jtip" aria-hidden="true"></div>
   </div>
 
   <!-- mobile compact timeline -->
   <ol class="jlist">
+    <span class="jlist__bus" id="jlistBus" aria-hidden="true"><svg viewBox="0 0 40 22" width="100%" height="100%"><rect x="1" y="1" width="38" height="20" rx="6" fill="#fff" stroke="#cdd0e6"/><rect x="1" y="1" width="10" height="20" rx="6" fill="#2E3192"/><rect x="14" y="5" width="6" height="6" rx="1" fill="#1b1f4d"/><rect x="23" y="5" width="6" height="6" rx="1" fill="#1b1f4d"/><rect x="1" y="16" width="38" height="3" fill="#CFA650"/></svg></span>
     <li><span>2006</span><b>Founded.</b> Tata-authorised CV service station opens.</li>
     <li><span>2008</span><b>WBTC on-site.</b> Servicing the West Bengal Transport Corporation.</li>
     <li><span>2013</span><b>Engine health.</b> Overhauls and preventive maintenance.</li>
@@ -323,6 +329,29 @@
   <div class="edge__quote reveal"><p>We do not outsource management. Our directors sit on-site until operations stabilise, building the SOPs, dashboards and incentives, then hand a running system to local managers.</p></div>
 </section>
 
+<!-- ============ KEY DIFFERENTIATORS ============ -->
+<section class="diff section" id="differentiators">
+  <div class="section__head reveal">
+    <span class="kicker">What sets us apart</span>
+    <h2 class="section__title">Key differentiators</h2>
+    <p class="section__lede">Two engines of advantage: operational rigour on the road, and a people model that keeps the best.</p>
+  </div>
+  <div class="diff__grid">
+    <div class="diff__group reveal">
+      <h3 class="diff__gtitle">Operational excellence</h3>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a3.5 3.5 0 0 0-4.9 4.9L3 18l3 3 6.8-6.8a3.5 3.5 0 0 0 4.9-4.9l-2.5 2.5-2.1-2.1z"/></svg></span><div><h4>Hands-on management</h4><p>Our directors run operations on-site until they stabilise, then hand over a working system.</p></div></div>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.1"/><path d="M3.5 19c0-3 2.2-4.8 5-4.8s5 1.8 5 4.8M14 19c0-2.2 1.4-3.8 3.8-3.8"/></svg></span><div><h4>Diversity &amp; inclusion</h4><p>India's first women charging operators. An inclusive workforce, by design.</p></div></div>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h4>Damage control</h4><p>Proactive maintenance and driver training cut accidents from 3.05% to 0.70%.</p></div></div>
+    </div>
+    <div class="diff__group reveal">
+      <h3 class="diff__gtitle">HR excellence</h3>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 8h5M9.5 11h5M13.5 8c0 2.6-1.8 3.6-3.5 3.6l3.8 4.4"/></svg></span><div><h4>Prompt &amp; automated payments</h4><p>Salaries on time, every time. Automated, predictable and transparent.</p></div></div>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span><div><h4>Transparency &amp; accountability</h4><p>Open dashboards and clear ownership at every depot, OEM to operator.</p></div></div>
+      <div class="dcard"><span class="dcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5"/><path d="M8.6 12.5L7 21l5-2.7L17 21l-1.6-8.5"/></svg></span><div><h4>Rewards &amp; recognition</h4><p>Employee of the Month and real incentives keep attrition below 5%.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TESTIMONIALS (carousel) ============ -->
 <section class="quotes section" id="clients">
   <div class="section__head reveal">
@@ -361,36 +390,36 @@
 <section class="network section section--dark" id="network">
   <div class="section__head reveal">
     <span class="kicker kicker--gold">Where we run</span>
-    <h2 class="section__title section__title--light">A four-state operating network</h2>
-    <p class="section__lede section__lede--light">449 electric buses live across four states, operated for the OEMs leading India's transition.</p>
+    <h2 class="section__title section__title--light">Our footprint across India</h2>
+    <p class="section__lede section__lede--light">449 electric buses live for the OEMs leading the transition, run from our Kolkata base.</p>
   </div>
-  <div class="route reveal" id="route">
-    <svg class="route__svg" id="routeSvg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
-      <path id="routePath" d="M30,70 C160,10 250,120 380,60 S620,10 700,70 S870,120 970,55" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2" stroke-dasharray="6 8"/>
-      <path id="routePathLit" d="M30,70 C160,10 250,120 380,60 S620,10 700,70 S870,120 970,55" fill="none" stroke="url(#routeGrad)" stroke-width="3"/>
-      <defs><linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1FBF6B"/><stop offset="1" stop-color="#CFA650"/></linearGradient></defs>
-      <g id="routeBus" class="route__bus"><rect x="-13" y="-8" width="26" height="16" rx="5" fill="#fff"/><rect x="-13" y="-8" width="26" height="5" rx="3" fill="#2E3192"/><rect x="-13" y="5" width="26" height="3" fill="#CFA650"/><circle cx="11" cy="0" r="1.6" fill="#ffd34d"/><animateMotion dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#routePath"/></animateMotion></g>
-    </svg>
-    <div class="stops">
-      <div class="stop">
-        <svg class="stop__sketch" viewBox="0 0 72 54" style="--len:600"><title>Vidhana Soudha, Bengaluru</title>
-          <path d="M6 48 H66"/><path d="M12 48 V30 H60 V48"/><path d="M20 48 V32 M30 48 V32 M42 48 V32 M52 48 V32"/><path d="M10 30 H62"/><path d="M30 30 V24 H42 V30"/><path d="M30 24 Q36 8 42 24"/><path d="M36 24 V11"/></svg>
-        <span class="stop__pin"></span><span class="stop__count" data-count="120">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Bengaluru</span><span class="stop__meta">Karnataka · Switch</span></div>
-      <div class="stop">
-        <svg class="stop__sketch" viewBox="0 0 72 54" style="--len:600"><title>Gateway of India, Maharashtra</title>
-          <path d="M6 48 H66"/><path d="M14 48 V20 H58 V48"/><path d="M30 48 V34 Q36 24 42 34 V48"/><path d="M19 48 V40 Q22 35 25 40 V48 M47 48 V40 Q50 35 53 40 V48"/><path d="M12 20 H60"/><path d="M18 20 Q22 12 26 20 M46 20 Q50 12 54 20"/><path d="M32 20 V14 H40 V20 M33 14 Q36 8 39 14"/></svg>
-        <span class="stop__pin"></span><span class="stop__count" data-count="61">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Dolvi</span><span class="stop__meta">Maharashtra · Switch</span></div>
-      <div class="stop">
-        <svg class="stop__sketch" viewBox="0 0 72 54" style="--len:600"><title>Kamakhya Temple, Guwahati</title>
-          <path d="M10 48 H62"/><path d="M20 48 V34 H52 V48"/><path d="M22 34 Q36 2 50 34"/><path d="M30 33 Q33 14 36 6 M42 33 Q39 14 36 6"/><path d="M36 6 V1"/><path d="M33 48 V40 Q36 36 39 40 V48"/></svg>
-        <span class="stop__pin"></span><span class="stop__count" data-count="100">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Guwahati</span><span class="stop__meta">Assam · JBM Group</span></div>
-      <div class="stop">
-        <svg class="stop__sketch" viewBox="0 0 72 54" style="--len:600"><title>India Gate, Delhi</title>
-          <path d="M8 50 H64"/><path d="M22 50 V18 M50 50 V18"/><path d="M22 18 Q36 2 50 18"/><path d="M28 50 V22 Q36 12 44 22 V50"/><path d="M18 18 H54 M20 14 H52"/><path d="M16 50 V46 H56 V50"/></svg>
-        <span class="stop__pin"></span><span class="stop__count" data-count="168">0</span><span class="stop__unit">e-buses</span><span class="stop__city">Delhi</span><span class="stop__meta">JBM Group</span></div>
+  <div class="indiamap reveal" id="indiamap">
+    <div class="indiamap__map">
+      <svg viewBox="0 0 460 540" class="india" role="img" aria-label="Map of India showing Kauntia Motor Works locations">
+        <defs>
+          <linearGradient id="indiaFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#23264f"/><stop offset="1" stop-color="#191b40"/></linearGradient>
+        </defs>
+        <path class="india__shape" d="M168,44 C190,52 214,62 250,78 C276,90 300,96 314,104 C320,112 306,122 318,130 C338,124 372,128 396,140 C420,152 414,172 388,176 C360,172 340,180 340,196 C344,222 352,252 340,270 C342,300 330,332 318,354 C300,388 276,424 252,458 C242,478 234,500 226,500 C218,498 212,476 202,446 C186,400 174,360 166,322 C156,288 150,268 152,246 C134,244 112,250 98,238 C90,220 108,210 120,206 C108,196 98,200 100,184 C112,154 128,120 144,92 C152,72 158,52 168,44 Z"/>
+        <g class="pins" id="pins">
+          <g class="pin pin--ev" data-k="delhi" style="--d:0s"><circle class="pin__halo" cx="220" cy="150" r="5"/><circle class="pin__dot" cx="220" cy="150" r="5"/></g>
+          <g class="pin pin--ev" data-k="dolvi" style="--d:.4s"><circle class="pin__halo" cx="166" cy="300" r="5"/><circle class="pin__dot" cx="166" cy="300" r="5"/></g>
+          <g class="pin pin--ev" data-k="blr" style="--d:.8s"><circle class="pin__halo" cx="202" cy="404" r="5"/><circle class="pin__dot" cx="202" cy="404" r="5"/></g>
+          <g class="pin pin--ev" data-k="guwahati" style="--d:1.2s"><circle class="pin__halo" cx="360" cy="162" r="5"/><circle class="pin__dot" cx="360" cy="162" r="5"/></g>
+          <g class="pin pin--hq" data-k="wb" style="--d:1.6s"><circle class="pin__halo" cx="318" cy="250" r="5"/><circle class="pin__dot" cx="318" cy="250" r="5"/></g>
+          <g class="pin pin--hq" data-k="odisha" style="--d:2s"><circle class="pin__halo" cx="293" cy="296" r="5"/><circle class="pin__dot" cx="293" cy="296" r="5"/></g>
+        </g>
+      </svg>
     </div>
+    <ul class="locs" id="locs">
+      <li class="loc loc--ev" data-k="delhi"><span class="loc__n" data-count="168">0</span><span class="loc__b">Delhi</span><span class="loc__m">JBM Group · e-buses</span></li>
+      <li class="loc loc--ev" data-k="blr"><span class="loc__n" data-count="120">0</span><span class="loc__b">Bengaluru</span><span class="loc__m">Karnataka · Switch · e-buses</span></li>
+      <li class="loc loc--ev" data-k="guwahati"><span class="loc__n" data-count="100">0</span><span class="loc__b">Guwahati</span><span class="loc__m">Assam · JBM Group · e-buses</span></li>
+      <li class="loc loc--ev" data-k="dolvi"><span class="loc__n" data-count="61">0</span><span class="loc__b">Dolvi</span><span class="loc__m">Maharashtra · Switch · e-buses</span></li>
+      <li class="loc loc--hq" data-k="wb"><span class="loc__tag">HQ</span><span class="loc__b">West Bengal</span><span class="loc__m">Kolkata · Headquarters</span></li>
+      <li class="loc loc--hq" data-k="odisha"><span class="loc__tag">&#9679;</span><span class="loc__b">Odisha</span><span class="loc__m">Operations</span></li>
+    </ul>
   </div>
-  <p class="network__foot reveal">Two Royal Enfield sales &amp; service outlets. Partners: <strong>Switch Mobility</strong>, <strong>JBM</strong>, <strong>Tata Motors</strong>.</p>
+  <p class="network__foot reveal">A Royal Enfield dealership. Partners: <strong>Switch Mobility</strong>, <strong>JBM</strong>, <strong>Tata Motors</strong>.</p>
 </section>
 
 <!-- ============ LIFE AT KAUNTIA ============ -->
@@ -400,16 +429,21 @@
     <h2 class="section__title">Life at Kauntia</h2>
     <p class="section__lede">Uptime is built by people. Training, safety, diversity and a few celebrations along the way.</p>
   </div>
-  <div class="gallery reveal" id="gallery">
-    <figure class="gtile gtile--tall" data-cap="Breaking barriers: Maharashtra's first women charging operators"><img src="assets/img/life/charging.jpg" alt="Maharashtra's first women charging operators" loading="lazy"/><figcaption>First women charging operators</figcaption></figure>
-    <figure class="gtile gtile--wide" data-cap="Together We Rise: celebrating the women of Kauntia"><img src="assets/img/life/women.jpg" alt="Celebrating the women of Kauntia" loading="lazy"/><figcaption>Celebrating the women of Kauntia</figcaption></figure>
-    <figure class="gtile" data-cap="Excellence recognised: Employee of the Month"><img src="assets/img/life/eom.jpg" alt="Employee of the Month" loading="lazy"/><figcaption>Employee of the Month</figcaption></figure>
-    <figure class="gtile gtile--tall" data-cap="Safety first: daily breathalyzer checks before every shift"><img src="assets/img/life/safety.jpg" alt="Breathalyzer safety checks" loading="lazy"/><figcaption>Safety first: daily checks</figcaption></figure>
-    <figure class="gtile" data-cap="Spreading sweetness on Diwali"><img src="assets/img/life/diwali.jpg" alt="Diwali celebrations" loading="lazy"/><figcaption>Spreading sweetness on Diwali</figcaption></figure>
-    <figure class="gtile" data-cap="Hands-on technician training"><img src="assets/img/life/training1.jpg" alt="Technician training" loading="lazy"/><figcaption>Technician training</figcaption></figure>
-    <figure class="gtile" data-cap="Continuous driver training"><img src="assets/img/life/training2.jpg" alt="Driver training" loading="lazy"/><figcaption>Driver training</figcaption></figure>
-    <figure class="gtile" data-cap="Charging operations, around the clock"><img src="assets/img/life/charging2.jpg" alt="Charging operations" loading="lazy"/><figcaption>Charging, round the clock</figcaption></figure>
+  <div class="reel reveal" id="reel">
+    <div class="reel__row reel__row--l">
+      <figure class="frame" data-cap="Breaking barriers: Maharashtra's first women charging operators"><img src="assets/img/life/charging.jpg" alt="Maharashtra's first women charging operators" loading="lazy"/><figcaption>First women charging operators</figcaption></figure>
+      <figure class="frame" data-cap="Together We Rise: celebrating the women of Kauntia"><img src="assets/img/life/women.jpg" alt="Celebrating the women of Kauntia" loading="lazy"/><figcaption>Celebrating the women of Kauntia</figcaption></figure>
+      <figure class="frame" data-cap="Excellence recognised: Employee of the Month"><img src="assets/img/life/eom.jpg" alt="Employee of the Month" loading="lazy"/><figcaption>Employee of the Month</figcaption></figure>
+      <figure class="frame" data-cap="Safety first: daily breathalyzer checks before every shift"><img src="assets/img/life/safety.jpg" alt="Breathalyzer safety checks" loading="lazy"/><figcaption>Safety first: daily checks</figcaption></figure>
+    </div>
+    <div class="reel__row reel__row--r">
+      <figure class="frame" data-cap="Spreading sweetness on Diwali"><img src="assets/img/life/diwali.jpg" alt="Diwali celebrations" loading="lazy"/><figcaption>Spreading sweetness on Diwali</figcaption></figure>
+      <figure class="frame" data-cap="Hands-on technician training"><img src="assets/img/life/training1.jpg" alt="Technician training" loading="lazy"/><figcaption>Technician training</figcaption></figure>
+      <figure class="frame" data-cap="Continuous driver training"><img src="assets/img/life/training2.jpg" alt="Driver training" loading="lazy"/><figcaption>Driver training</figcaption></figure>
+      <figure class="frame" data-cap="Charging operations, around the clock"><img src="assets/img/life/charging2.jpg" alt="Charging operations" loading="lazy"/><figcaption>Charging, round the clock</figcaption></figure>
+    </div>
   </div>
+  <p class="reel__note reveal">Hover to pause &middot; click any moment to expand</p>
 </section>
 
 <div class="lightbox" id="lightbox" aria-hidden="true">

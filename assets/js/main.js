@@ -225,6 +225,28 @@
     io.observe(jmap);
   })();
 
+  /* ---------- journey node hover tooltips (content on hover) ---------- */
+  (function jtip() {
+    var tip = $("#jtip"), jmap = $("#jmap");
+    if (!tip || !jmap) return;
+    $$(".jnode").forEach(function (node) {
+      var titleEl = node.querySelector("title");
+      var desc = titleEl ? titleEl.textContent : "";
+      function place() {
+        var nb = node.getBoundingClientRect(), mb = jmap.getBoundingClientRect();
+        var cx = nb.left + nb.width / 2 - mb.left;
+        var below = (nb.top - mb.top) < mb.height * 0.42;
+        tip.textContent = desc;
+        tip.style.left = cx + "px";
+        tip.style.top = (below ? (nb.bottom - mb.top) : (nb.top - mb.top)) + "px";
+        tip.classList.toggle("below", below);
+        tip.classList.add("show");
+      }
+      node.addEventListener("mouseenter", place);
+      node.addEventListener("mouseleave", function () { tip.classList.remove("show"); });
+    });
+  })();
+
   /* ---------- (legacy vertical road; no-op if absent) ---------- */
   var roadBus = $("#roadBus"), road = $("#road"), roadFill = $("#roadFill");
   var roadLine = road ? road.querySelector(".road__line") : null;
@@ -296,7 +318,23 @@
     tabs.forEach(function (t, i) { t.addEventListener("click", function () { select(i); }); });
   })();
 
-  /* ---------- Life gallery lightbox ---------- */
+  /* ---------- India map: sync pin <-> location list on hover ---------- */
+  (function indiamap() {
+    function link(a, b) {
+      a.addEventListener("mouseenter", function () { a.classList.add("active"); if (b) b.classList.add("active"); });
+      a.addEventListener("mouseleave", function () { a.classList.remove("active"); if (b) b.classList.remove("active"); });
+    }
+    $$(".loc").forEach(function (li) { link(li, document.querySelector('.pin[data-k="' + li.dataset.k + '"]')); });
+    $$(".pin").forEach(function (pin) { link(pin, document.querySelector('.loc[data-k="' + pin.dataset.k + '"]')); });
+  })();
+
+  /* ---------- Life reel: repeat frames for a seamless loop, then wire lightbox ----------
+     (fixed 6x repeat = two identical 3x halves, so the -50% keyframe loops with no gap;
+      avoids measuring image widths, which are 0 before load) */
+  $$(".reel__row").forEach(function (row) {
+    var base = row.innerHTML;
+    row.innerHTML = base + base + base + base + base + base;
+  });
   (function lightbox() {
     var lb = $("#lightbox"), img = $("#lbImg"), cap = $("#lbCap"), closeBtn = $("#lbClose");
     if (!lb) return;
@@ -306,7 +344,7 @@
       lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
     }
     function hide() { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
-    $$(".gtile").forEach(function (t) {
+    $$(".frame").forEach(function (t) {
       t.addEventListener("click", function () { show(t); });
     });
     closeBtn.addEventListener("click", hide);
