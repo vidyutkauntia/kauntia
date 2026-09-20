@@ -194,6 +194,17 @@ img{display:block;max-width:100%}
 .fleet__legend{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:24px;font-size:.86rem;color:var(--mist);font-weight:600}
 .fleet__legend span{display:inline-flex;align-items:center;gap:7px}
 .fleet__legend i{width:11px;height:11px;border-radius:3px}
+/* --- new-contract flash (Delhi +120) --- */
+.fleet__new{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  max-width:660px;margin:26px auto 0;padding:14px 20px;text-align:left;
+  background:linear-gradient(120deg,rgba(19,160,92,.08),rgba(46,49,146,.07));
+  border:1px solid rgba(19,160,92,.28);border-radius:14px}
+.fleet__new-pill{flex:none;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;background:var(--green);padding:5px 11px;border-radius:99px}
+.fleet__new-txt{font-size:.97rem;color:var(--mist);line-height:1.45}
+.fleet__new-txt strong{color:var(--ink);font-weight:700}
+.loc__new{display:inline-block;margin-left:6px;vertical-align:1px;font-size:.62rem;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:#0e1030;background:var(--green-bright);padding:3px 8px;border-radius:99px}
 .fleet__note{text-align:center;max-width:600px;margin:24px auto 0;color:var(--mist);font-size:.98rem}
 .fleet__note strong{color:var(--ink)}
 
