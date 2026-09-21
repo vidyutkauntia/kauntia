@@ -202,13 +202,13 @@
     track.innerHTML = track.innerHTML + track.innerHTML; // two identical halves -> -50% loops seamlessly
   })();
 
-  /* ---------- fleet grid (569 buses, by city; one tile = 10 buses) ---------- */
+  /* ---------- fleet grid (561 buses, by city; one tile = 10 buses) ---------- */
   (function fleet() {
     var viz = $("#fleetViz"); if (!viz) return;
     var groups = [
       { n: 12, c: "var(--green-bright)" }, // Bengaluru 120
       { n: 10, c: "#3fd089" },             // Guwahati 100
-      { n: 29, c: "var(--navy-2)" },       // Delhi 288
+      { n: 28, c: "var(--navy-2)" },       // Delhi 280 (160 JBM + 120 GreenCell)
       { n: 6,  c: "var(--navy)" }          // Dolvi 61
     ];
     var k = 0;

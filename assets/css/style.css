@@ -173,6 +173,7 @@ img{display:block;max-width:100%}
 .lg--jbm{color:#0E6FB8;flex-direction:column;gap:0;align-items:center}.lg--jbm small{color:#7a8aa0;letter-spacing:.3em;margin-top:2px}
 .lg--re{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:#9A2A2A;letter-spacing:.02em}
 .lg--iso{color:var(--navy);flex-direction:column;gap:0;align-items:center;font-size:1.5rem}.lg--iso i{font-size:.42em;font-weight:700;letter-spacing:.14em;color:var(--gold);margin-top:1px}
+.lg--gcm{flex-direction:column;gap:0;align-items:center}.lg--gcm i{color:#0F8A42;font-weight:800}.lg--gcm i b{color:#23236E;font-weight:800}.lg--gcm small{color:#23236E;letter-spacing:.28em;margin-top:2px}
 .lg--ohm{color:#0E8F8F;flex-direction:column;gap:0;align-items:center}.lg--ohm small{color:#0E8F8F;letter-spacing:.26em;margin-top:2px;opacity:.85}
 
 /* ============ FLEET VISUALISATION ============ */
